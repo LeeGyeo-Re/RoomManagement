@@ -14,7 +14,7 @@ variables:
   # containerRegistryDockerConnection: 'acr'
   # environment: 'aks.default'
 - name: imageRepository
-  value: 'RoomManagement'
+  value: 'roommanagement'
 - name: dockerfilePath
   value: '**/Dockerfile'
 - name: tag
@@ -107,7 +107,7 @@ stages:
                             - containerPort: 8080
                           readinessProbe:
                             httpGet:
-                              path: /actuator/health
+                              path: /roommanagements
                               port: 8080
                             initialDelaySeconds: 10
                             timeoutSeconds: 2
@@ -115,7 +115,7 @@ stages:
                             failureThreshold: 10
                           livenessProbe:
                             httpGet:
-                              path: /products/1
+                              path: /roommanagements
                               port: 8080
                             initialDelaySeconds: 120
                             timeoutSeconds: 2
